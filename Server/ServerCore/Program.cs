@@ -5,42 +5,30 @@ using System.Threading.Tasks;
 namespace ServerCore
 {
 
+    // [ JobQueue ]
 
     class Program
     {
+        static ThreadLocal<string> ThreadName = new ThreadLocal<string>(() => { return $"My Name Is { Thread.CurrentThread.ManagedThreadId}"; });
+        
+        static void WhoAmI()
+        {
+            bool repeat = ThreadName.IsValueCreated;
 
-        static volatile int count = 0;
-        static Lock _lock = new Lock();
+            if(repeat)
+                  Console.WriteLine(ThreadName.Value + "(repeat)");
+            else
+                Console.WriteLine(ThreadName.Value);
+        }
+
         static void Main(string[] args) // 메인 직원
         {
-
-            Task t1 = new Task(delegate ()
-            {
-                for (int i = 0; i < 10000; i++)
-                {
-                    _lock.WriteLock();
-                    count++;
-                    _lock.WriteUnlock();
-                }
-            });
-            Task t2 = new Task(delegate ()
-            {
-                for (int i = 0; i < 10000; i++)
-                {
-                    _lock.WriteLock();
-                    count--;
-                    _lock.WriteUnlock();
-                }
-            });
+            ThreadPool.SetMinThreads(1, 1);
+            ThreadPool.SetMaxThreads(3,3);
+            Parallel.Invoke(WhoAmI, WhoAmI, WhoAmI, WhoAmI, WhoAmI, WhoAmI);
 
 
-
-            t1.Start();
-            t2.Start();
-
-            Task.WaitAll(t1, t2);
-
-            Console.WriteLine(count);
+            ThreadName.Dispose();
         }
     }
 }
