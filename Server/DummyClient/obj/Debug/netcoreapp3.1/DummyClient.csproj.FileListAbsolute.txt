@@ -11,3 +11,16 @@ C:\Users\ehdrj\source\repos\Server\DummyClient\obj\Debug\netcoreapp3.1\DummyClie
 C:\Users\ehdrj\source\repos\Server\DummyClient\obj\Debug\netcoreapp3.1\DummyClient.dll
 C:\Users\ehdrj\source\repos\Server\DummyClient\obj\Debug\netcoreapp3.1\DummyClient.pdb
 C:\Users\ehdrj\source\repos\Server\DummyClient\obj\Debug\netcoreapp3.1\DummyClient.genruntimeconfig.cache
+C:\Users\ehdrj\OneDrive\Desktop\MyServer\Server\DummyClient\bin\Debug\netcoreapp3.1\DummyClient.exe
+C:\Users\ehdrj\OneDrive\Desktop\MyServer\Server\DummyClient\bin\Debug\netcoreapp3.1\DummyClient.deps.json
+C:\Users\ehdrj\OneDrive\Desktop\MyServer\Server\DummyClient\bin\Debug\netcoreapp3.1\DummyClient.runtimeconfig.json
+C:\Users\ehdrj\OneDrive\Desktop\MyServer\Server\DummyClient\bin\Debug\netcoreapp3.1\DummyClient.runtimeconfig.dev.json
+C:\Users\ehdrj\OneDrive\Desktop\MyServer\Server\DummyClient\bin\Debug\netcoreapp3.1\DummyClient.dll
+C:\Users\ehdrj\OneDrive\Desktop\MyServer\Server\DummyClient\bin\Debug\netcoreapp3.1\DummyClient.pdb
+C:\Users\ehdrj\OneDrive\Desktop\MyServer\Server\DummyClient\obj\Debug\netcoreapp3.1\DummyClient.csprojAssemblyReference.cache
+C:\Users\ehdrj\OneDrive\Desktop\MyServer\Server\DummyClient\obj\Debug\netcoreapp3.1\DummyClient.AssemblyInfoInputs.cache
+C:\Users\ehdrj\OneDrive\Desktop\MyServer\Server\DummyClient\obj\Debug\netcoreapp3.1\DummyClient.AssemblyInfo.cs
+C:\Users\ehdrj\OneDrive\Desktop\MyServer\Server\DummyClient\obj\Debug\netcoreapp3.1\DummyClient.csproj.CoreCompileInputs.cache
+C:\Users\ehdrj\OneDrive\Desktop\MyServer\Server\DummyClient\obj\Debug\netcoreapp3.1\DummyClient.dll
+C:\Users\ehdrj\OneDrive\Desktop\MyServer\Server\DummyClient\obj\Debug\netcoreapp3.1\DummyClient.pdb
+C:\Users\ehdrj\OneDrive\Desktop\MyServer\Server\DummyClient\obj\Debug\netcoreapp3.1\DummyClient.genruntimeconfig.cache
