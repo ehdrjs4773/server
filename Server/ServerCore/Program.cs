@@ -10,7 +10,7 @@ namespace ServerCore
 
     class Program
     {
- 
+        static Listener _Listener = new Listener();
         static void Main(string[] args) // 메인 직원
         {
             // DNS  (Domain Name System)
@@ -19,26 +19,17 @@ namespace ServerCore
             IPAddress ipAddr =  ipHost.AddressList[0];
             IPEndPoint endPoint = new IPEndPoint(ipAddr, 7777);
 
-            // 문지기 휴대폰
-            Socket listenSocket = new Socket(endPoint.AddressFamily,SocketType.Stream,ProtocolType.Tcp);
-
 
             try
             {
-                // 문지기 교육
-                listenSocket.Bind(endPoint);
-
-                // 영업시작 
-                // backlog : 최대 대기수
-                listenSocket.Listen(10);
-
+                _Listener.init(endPoint);
                 while (true)
                 {
                     Console.WriteLine("Listening...");
 
                     // 손님을 입장시킨다
 
-                    Socket clientSocket = listenSocket.Accept();
+                    Socket clientSocket = _Listener.Accept();
 
                     // 받는다
                     byte[] recvBuff = new byte[1024];
