@@ -11,6 +11,32 @@ namespace ServerCore
     class Program
     {
         static Listener _Listener = new Listener();
+
+        static void OnAcceptHandler(Socket clientSocket)
+        {
+            try
+            {
+
+                // 받는다
+                byte[] recvBuff = new byte[1024];
+                int recvBytes = clientSocket.Receive(recvBuff);
+                string recvData = Encoding.UTF8.GetString(recvBuff, 0, recvBytes);
+                Console.WriteLine($"[From Client] {recvData}");
+
+                // 보낸다
+                byte[] sendBuff = Encoding.UTF8.GetBytes("Welcome to MMORPG Server!");
+                clientSocket.Send(sendBuff);
+
+                // 쫓아낸다
+                clientSocket.Shutdown(SocketShutdown.Both);
+                clientSocket.Close();
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e);
+            }
+
+        }
         static void Main(string[] args) // 메인 직원
         {
             // DNS  (Domain Name System)
@@ -20,40 +46,14 @@ namespace ServerCore
             IPEndPoint endPoint = new IPEndPoint(ipAddr, 7777);
 
 
-            try
-            {
-                _Listener.init(endPoint);
-                while (true)
-                {
-                    Console.WriteLine("Listening...");
+      
+            _Listener.init(endPoint, OnAcceptHandler);
+            Console.WriteLine("Listening...");
 
-                    // 손님을 입장시킨다
-
-                    Socket clientSocket = _Listener.Accept();
-
-                    // 받는다
-                    byte[] recvBuff = new byte[1024];
-                    int recvBytes = clientSocket.Receive(recvBuff);
-                    string recvData = Encoding.UTF8.GetString(recvBuff, 0, recvBytes);
-                    Console.WriteLine($"[From Client] {recvData}");
-
-                    // 보낸다
-                    byte[] sendBuff = Encoding.UTF8.GetBytes("Welcome to MMORPG Server!");
-                    clientSocket.Send(sendBuff);
-
-                    // 쫓아낸다
-                    clientSocket.Shutdown(SocketShutdown.Both);
-                    clientSocket.Close();
-
-
-                }
-            }
-
-            catch(Exception e)
-            {
-                Console.WriteLine(e.ToString());
-            }
-           
+             while (true)
+             {
+                ;
+             }
         }
     }
 }
